@@ -2,3 +2,17 @@ name: Disintegration
 speedMultiplier: 0.5
 damage: 0.5
 color: ffc875
+effect: {
+ type: ParticleEffect
+ length: 50
+ particles: 3
+ cone: 360
+ lenFrom: 20
+ lenTo: 0
+ strokeFrom: 2
+ strokeTo: 2
+ line: true
+ colorFrom: ffc875
+ colorTo: 991a1a
+ lifetime: 30
+}
