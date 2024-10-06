@@ -1,1 +1,4 @@
-
+name: Disintegration
+speedMultiplier: 0.5
+damage: 0.5
+color: ffc875
