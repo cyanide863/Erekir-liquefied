@@ -4,7 +4,7 @@ template: ErekirUnitType
 type: flying
 flying: true
 description: An ancient flagship covered in rocks to protect it from erekir's harsh conditions, although over half of it has been destroyed, it still is a threat.
-health: 32000
+health: 48000
 hitSize: 100
 armor: 100
 speed: 0.6
@@ -85,34 +85,8 @@ effects: [
   }
 ]
 }
-engineSize: 8
-engineOffset: 50
-engines: [
-  {
-    x: 40
-    radius: 8
-    rotation: -45
-    y: -40
-}
-  {
-    x: -40
-    radius: 8
-    rotation: -135
-    y: -40
-}
-  {
-    x: 20
-    radius: 8
-    rotation: -45
-    y: -45
-}
-  {
-    x: -20
-    radius: 10
-    rotation: -135
-    y: -45
-}
-]
+engineSize: 0
+engineOffset: 0
 targetAir: false
 faceTarget: true
 lightRadius: 5
@@ -122,80 +96,69 @@ rotateSpeed: 0.9
 engineColor: ff0000
 immunities: [
   erekirliquefied-metalfrag
+  erekirliquefied-disintegration
 ]
-  weapons: [{
+  weapons: [
+   {
     name: basaltoid
-    shootSound: flame
+    shootSound: torch
     recoil: 0
     shootY: 6
     y: 0
     mirror: false
     x: 0
     reload: 10
+    shake: 8
     shootCone: 5
-    inaccuracy: 6
-    shoot: {
-      shots: 5
-      shotDelay: 5
-}
-  top: false
+    continuous: true
+    alwaysContinuous: true
+    top: false
     bullet: {
-    shootEffect: {
-      cone: 5
-      sizeFrom: 12
-      type: ParticleEffect
-      particles: 20
-      colorFrom: ffffff
-      colorTo: ff0000
-      length: 300
-      }
-      despawnHit: false
-      despawnEffect: none
-      hitEffect: hitFlameSmall
-      absorbable: true
-      type: BulletType
-      damage: 210
-      speed: 8
-      lifetime: 35
-      pierceCap: 5
-      pierce: true
-      pierceBuilding: true
-      hitSize: 8
-      status: melting
-      statusDuration: 900
-        }
-  parts: [
-    {
-    type: RegionPart
-    suffix: -blade
-    x: 0
-    y: 0
-    moveRot: 25
-    moveX: 8
-    moveY: 5
-    mirror: true
-    heatProgress: warmup
-    heatColor: ff7a00
-    }
-]
+    hitColor: c7352280
+    type: ContinuousFlameBulletType
+    width: 20
+    flareWidth: 16
+    flareLength: 180
+    flareColor: c7352280
+    colors: [991a1a60, c7352280, fa632890, ff7f4d, ffc875, ffffff]
+    status: erekirliquefied-disintegration
+    statusDuration: 500
+    damage: 220
+    length: 250
+    pierceCap: 3
+  }
 }
 {
-name: basaltoid-laser
+name: basaltoid-gun
 reload: 300
 mirror: true
 x: 32
 y: -16
-shootSound: laser
-soundPitchMin: -10
-soundPitchMax: 0
+shootSound: shootBig
+soundPitchMin: -1
+soundPitchMax: 1
+reload: 50
 cooldownTime: 600
 rotate: true
 bullet: {
-  type: LaserBulletType
-  damage: 415
-  colors: [ff0000,ff0000,ff0000]
-  length: 200
-  width: 6
+    trailRotation: true
+    trailParam: 1.8
+    trailInterval: 1
+    trailColor: aaffa7
+    trailLength: 32
+    trailWidth: 4
+    hitSound: dullExplosion
+    type: BasicBulletType
+    damage: 120
+    splashDamage: 90
+    splashDamageRadius: 40
+    lifetime: 60
+    speed: 8
+    sprite: erekirliquefied-rock
+    backColor: fa6328
+    frontColor: 606060
+    status: erekirliquefied-disintegration
+    statusDuration: 300
   }
 }
 ]
